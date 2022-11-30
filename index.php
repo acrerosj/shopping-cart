@@ -4,11 +4,12 @@
   
   if (isset($_GET['id']) && isset($_GET['name']) && isset($_GET['price'])) {
     $found = false;
-    if (isset($_SESSION['cart'])) $_SESSION['cart'] = [];
-    for ($i=0; $i<count($_SESSION['cart']) && !$found; $i++) {
-      if ($_SESSION['cart'][$i]['id'] == $_GET['id']) {
-        $_SESSION['cart'][$i]['amount']++;
-        $found = true;
+    if (isset($_SESSION['cart'])) {
+      for ($i=0; $i<count($_SESSION['cart']) && !$found; $i++) {
+        if ($_SESSION['cart'][$i]['id'] == $_GET['id']) {
+          $_SESSION['cart'][$i]['amount']++;
+          $found = true;
+        }
       }
     }
     if (!$found) {
