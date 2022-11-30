@@ -20,3 +20,12 @@ th a {
   color: white;
   text-decoration: none;
 }
+
+td a {
+  border: 1px solid blue;
+  background-color: #ccf;
+  padding: 2px;
+  display: block;
+  text-decoration: none;
+  margin: 2px;
+}
