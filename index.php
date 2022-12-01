@@ -53,16 +53,7 @@
   $result = $conn->query($sql);
 
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<?php include('includes/header.inc.php'); ?>
   <h1>Productos</h1>
   <p><a href="cart.php">Carrito (<?= $numProductsCart?>)</a></p>
   <table>
@@ -82,14 +73,19 @@
       <tr>
         <td><?=$row['id']?></td>
         <td><?=$row['name']?></td>
-        <td><?=$row['price']?></td>
+        <td><?=$row['price']?>€</td>
         <td><?=$row['amount']?></td>
+<?php if ($row['amount']==0) { ?>
+        <td></td>
+<?php } else { ?>
         <td><a href="index.php?id=<?=$row['id']?>&name=<?=$row['name']?>&price=<?=$row['price']?>">Añadir a carrito</a></td>
+<?php } ?>
       </tr>
 <?php
-  endwhile
+  endwhile;
+  $result->close();
 ?>      
     </tbody>
   </table>
-</body>
-</html>
+  <?php include('includes/footer.inc.php'); ?>
+  <?php include('includes/close-connection.php'); ?>

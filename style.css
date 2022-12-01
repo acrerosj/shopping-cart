@@ -16,6 +16,19 @@ tr:nth-child(even) {
   background-color: aquamarine;
 }
 
+td:nth-child(1), td:nth-child(4) {
+  text-align: center;
+}
+
+td:nth-child(3), td:nth-child(5) {
+  text-align: right;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+
 th a {
   color: white;
   text-decoration: none;
@@ -25,7 +38,7 @@ td a {
   border: 1px solid blue;
   background-color: #ccf;
   padding: 2px;
-  display: block;
+  display: inline-block;
   text-decoration: none;
   margin: 2px;
 }
